@@ -96,7 +96,7 @@ COMMIT;
 -- Run the stored procedure script getUniqueSku.sql
 -- db2 -tsvf \\<path>\getUniqueSku.sql > \\<path>\getUniqueSku.out
 -- Call stored procedure getUniqueSku for inserting all Sku information based on product name and product_id  
-CALL getUniqueSku(?, ?) 
+CALL getUniqueSku(?, ?);
 
 SELECT * FROM products; 
 
@@ -118,7 +118,7 @@ INSERT INTO stores (store_specification, store_name, store_address, store_city, 
 INSERT INTO stores (store_specification, store_name, store_address, store_city, store_phone) VALUES ('CT', 'EngravedLove Cookstown', '89-3311 Simcoe Rd.', 'Barrie', '(705)726-4242');
 INSERT INTO stores (store_specification, store_name, store_address, store_city, store_phone) VALUES ('MP', 'EngravedLove Masonville Place', '1680 Richmond St.', 'London', '(226)663-2433'); 
 INSERT INTO stores (store_specification, store_name, store_address, store_city, store_phone) VALUES ('SG', 'EngravedLove Sherway Gardens', '25 The West Mall', 'Etobicoke', '(416)695-0257'); 
-INSERT INTO stores (store_specification, store_name, store_address, store_city, store_phone) VALUES ('CFM', 'EngravedLove CF Markville', '5000 Hwy. 7', 'Markham', '(905)477-5479')
+INSERT INTO stores (store_specification, store_name, store_address, store_city, store_phone) VALUES ('CFM', 'EngravedLove CF Markville', '5000 Hwy. 7', 'Markham', '(905)477-5479');
 COMMIT; 
 
 SELECT * FROM stores; 
@@ -144,19 +144,19 @@ CREATE TABLE employees (
 -- db2 -tsvf \\<path>\trigger_check_emp.sql > \\<path>\trigger_check_emp.out
 
 -- Insert data in Employees
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire) VALUES ('LTH01', 'Leslie', 'Thompson', 'CEO/Owner', TO_DATE('2021-01-07', 'yyyy-mm-dd'))
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('DMU02', 'Diane', 'Murphy', 'General Store Manager TEC', TO_DATE('2021-09-14', 'yyyy-mm-dd'), 5800.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('BJO03', 'Barry', 'Jones', 'Assistant Manager TEC', TO_DATE('2022-06-22', 'yyyy-mm-dd'), 4950.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('PMA04', 'Peter', 'Marsh', 'Sales Representative TEC', TO_DATE('2022-03-24', 'yyyy-mm-dd'), 3700.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('MGE05', 'Martin', 'Gerard', 'Sales Representative TEC', TO_DATE('2023-07-12', 'yyyy-mm-dd'), 4100.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('ABO06', 'Anthony', 'Bow', 'General Store Manager CT', TO_DATE('2022-04-18', 'yyyy-mm-dd'), 5950.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('GHO07', 'Gabriel', 'Howard', 'Assistant Manager CT', TO_DATE('2023-03-12', 'yyyy-mm-dd'), 5100.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('RGR08', 'Ryan', 'Gray', 'Sales Representative CT', TO_DATE('2022-03-12', 'yyyy-mm-dd'), 3850.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, date_of_termination, monthly_pay_rate) VALUES ('GHO07', 'Gabriel', 'Howard', 'Sales Representative CT', TO_DATE('2021-04-21', 'yyyy-mm-dd'), TO_DATE('2023-03-12', 'yyyy-mm-dd'), 3550.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('EPE09', 'Emma', 'Perkins', 'Sales Representative CT', TO_DATE('2022-06-20', 'yyyy-mm-dd'), 3650.00)
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('EWA10', 'Ella', 'Wallace', 'Sales Representative CT', TO_DATE('2022-12-20', 'yyyy-mm-dd'), 3650.00)
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire) VALUES ('LTH01', 'Leslie', 'Thompson', 'CEO/Owner', TO_DATE('2021-01-07', 'yyyy-mm-dd'));
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('DMU02', 'Diane', 'Murphy', 'General Store Manager TEC', TO_DATE('2021-09-14', 'yyyy-mm-dd'), 5800.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('BJO03', 'Barry', 'Jones', 'Assistant Manager TEC', TO_DATE('2022-06-22', 'yyyy-mm-dd'), 4950.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('PMA04', 'Peter', 'Marsh', 'Sales Representative TEC', TO_DATE('2022-03-24', 'yyyy-mm-dd'), 3700.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('MGE05', 'Martin', 'Gerard', 'Sales Representative TEC', TO_DATE('2023-07-12', 'yyyy-mm-dd'), 4100.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('ABO06', 'Anthony', 'Bow', 'General Store Manager CT', TO_DATE('2022-04-18', 'yyyy-mm-dd'), 5950.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('GHO07', 'Gabriel', 'Howard', 'Assistant Manager CT', TO_DATE('2023-03-12', 'yyyy-mm-dd'), 5100.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('RGR08', 'Ryan', 'Gray', 'Sales Representative CT', TO_DATE('2022-03-12', 'yyyy-mm-dd'), 3850.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, date_of_termination, monthly_pay_rate) VALUES ('GHO07', 'Gabriel', 'Howard', 'Sales Representative CT', TO_DATE('2021-04-21', 'yyyy-mm-dd'), TO_DATE('2023-03-12', 'yyyy-mm-dd'), 3550.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('EPE09', 'Emma', 'Perkins', 'Sales Representative CT', TO_DATE('2022-06-20', 'yyyy-mm-dd'), 3650.00);
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('EWA10', 'Ella', 'Wallace', 'Sales Representative CT', TO_DATE('2022-12-20', 'yyyy-mm-dd'), 3650.00);
 -- Error checking for invalid employee role 
-INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('ICH11', 'Invalid', 'Check', 'General Store Manager CAA', TO_DATE('2022-12-20', 'yyyy-mm-dd'), 3650.00)
+INSERT INTO employees (employee_id, employee_fname, employee_lname, employee_role, date_of_hire, monthly_pay_rate) VALUES ('ICH11', 'Invalid', 'Check', 'General Store Manager CAA', TO_DATE('2022-12-20', 'yyyy-mm-dd'), 3650.00);
 COMMIT; 
 
 -- Run the stored procedure script setReportTo.sql
@@ -178,10 +178,10 @@ CREATE TABLE age_groups (
 ); 
 
 -- Insert data in Age_groups 
-INSERT INTO age_groups (ageGroup_name, ageGroup_description, ageGroup_begin, ageGroup_end) VALUES ('Infants', 'Product Group identification of customers of age 0 to 12', 0, 12)
-INSERT INTO age_groups (ageGroup_name, ageGroup_description, ageGroup_begin, ageGroup_end) VALUES ('Teenagers', 'Product Group identification of customers of age 13 to 25', 13, 25)
-INSERT INTO age_groups (ageGroup_name, ageGroup_description, ageGroup_begin, ageGroup_end) VALUES ('Adults', 'Product Group identification of customers of age 26 to 59', 26, 59)
-INSERT INTO age_groups (ageGroup_name, ageGroup_description, ageGroup_begin, ageGroup_end) VALUES ('Seniors', 'Product Group identification of customers of age 60+', 60, 200)
+INSERT INTO age_groups (ageGroup_name, ageGroup_description, ageGroup_begin, ageGroup_end) VALUES ('Infants', 'Product Group identification of customers of age 0 to 12', 0, 12);
+INSERT INTO age_groups (ageGroup_name, ageGroup_description, ageGroup_begin, ageGroup_end) VALUES ('Teenagers', 'Product Group identification of customers of age 13 to 25', 13, 25);
+INSERT INTO age_groups (ageGroup_name, ageGroup_description, ageGroup_begin, ageGroup_end) VALUES ('Adults', 'Product Group identification of customers of age 26 to 59', 26, 59);
+INSERT INTO age_groups (ageGroup_name, ageGroup_description, ageGroup_begin, ageGroup_end) VALUES ('Seniors', 'Product Group identification of customers of age 60+', 60, 200);
 COMMIT;
 
 SELECT * FROM age_groups; 
@@ -200,7 +200,7 @@ CREATE TABLE promotions_n_campaign (
     event_end_date        DATE,
     repeats               VARCHAR(8) NOT NULL DEFAULT 'None', 
     PRIMARY KEY ( promcamp_key )
-)
+);
 
 -- Insert data in Promotions
 INSERT INTO promotions_n_campaign (promotion_name, promotion_description, discount_percentage, event_start_date, repeats) VALUES ('Store Anniversary Sale', 'All items 30% off (include all regular merchandises and sale items), biggest sale of the year', 30, TO_DATE('2021-01-07', 'yyyy-mm-dd'), 'yearly');
@@ -217,7 +217,7 @@ CREATE TABLE payments (
     payment_type             VARCHAR(15) NOT NULL,
     payment_type_description VARCHAR(100),
     PRIMARY KEY ( payment_type_key )
-)
+);
 
 -- Insert data in Payments
 INSERT INTO payments VALUES ('CASH', 'Cash', 'Pay with Cash method');
